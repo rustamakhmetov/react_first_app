@@ -103,9 +103,40 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({4:[function(require,module,exports) {
-console.log("Hello!");
-},{}],6:[function(require,module,exports) {
+})({12:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var add = function add(a, b) {
+  return a + b;
+};
+var sub = exports.sub = function sub(a, b) {
+  return a - b;
+};
+var div = exports.div = function div(a, b) {
+  return a / b;
+};
+var mul = exports.mul = function mul(a, b) {
+  return a * b;
+};
+
+exports.default = add;
+},{}],4:[function(require,module,exports) {
+"use strict";
+
+var _math = require("./src/math");
+
+var math = _interopRequireWildcard(_math);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+console.log("add(5,4): " + (0, math.default)(5, 4));
+console.log("sub(5,4): " + math.sub(5, 4));
+console.log("div(5,4): " + math.div(5, 4));
+console.log("mul(5,4): " + math.mul(5, 4));
+},{"./src/math":12}],6:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
